@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 import EmojiPicker from "emoji-picker-react";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://realchat-6l4v.onrender.com");
 
 function Chat() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -79,7 +79,7 @@ function Chat() {
   try {
 
     const res = await axios.post(
-      "http://localhost:5000/api/upload",
+      "https://realchat-6l4v.onrender.com/api/upload",
       formData
     );
 
@@ -107,7 +107,7 @@ function Chat() {
     const loadFriends = async () => {
 
 const res = await axios.get(
-`http://localhost:5000/api/friends/${username}`
+`https://realchat-6l4v.onrender.com/api/friends/${username}`
 );
 
 setFriends(res.data);
@@ -119,7 +119,7 @@ setFriends(res.data);
 
   const res = await axios.get(
 
-    `http://localhost:5000/api/friends/requests/${username}`
+    `https://realchat-6l4v.onrender.com/api/friends/requests/${username}`
 
   );
 
@@ -238,7 +238,7 @@ socket.on("refresh_friends",async()=>{
 
   const res=await axios.get(
 
-  `http://localhost:5000/api/friends/${username}`
+  `https://realchat-6l4v.onrender.com/api/friends/${username}`
 
    );
 
@@ -270,7 +270,7 @@ socket.on("refresh_friends",async()=>{
   }));
 
   const res = await axios.get(
-    `http://localhost:5000/api/chat/${username}/${u.username}`
+    `https://realchat-6l4v.onrender.com/api/chat/${username}/${u.username}`
   );
 
   setMessages(res.data);
@@ -354,7 +354,7 @@ return;
 
 const res=await axios.get(
 
-`http://localhost:5000/api/users/search/${e.target.value}`
+`https://realchat-6l4v.onrender.com/api/users/search/${e.target.value}`
 
 );
 
@@ -392,7 +392,7 @@ setSearchResults(res.data);
                       <img
                         src={
                           u.avatar
-                            ? `http://localhost:5000${u.avatar}`
+                            ? `https://realchat-6l4v.onrender.com${u.avatar}`
                             : `[ui-avatars.com](https://ui-avatars.com/api/?name=${u.username}&background=6366f1&color=fff)`
                         }
                         alt={u.username}
@@ -464,7 +464,7 @@ setSearchResults(res.data);
                     <img
                       src={
                         selectedUser.avatar
-                          ? `http://localhost:5000${selectedUser.avatar}`
+                          ? `https://realchat-6l4v.onrender.com${selectedUser.avatar}`
                           : `[ui-avatars.com](https://ui-avatars.com/api/?name=${selectedUser.username}&background=6366f1&color=fff)`
                       }
                       alt={selectedUser.username}
@@ -773,7 +773,7 @@ return;
 
 const res=await axios.get(
 
-`http://localhost:5000/api/users/search/${e.target.value}`
+`https://realchat-6l4v.onrender.com/api/users/search/${e.target.value}`
 
 );
 
@@ -802,7 +802,7 @@ onClick={async()=>{
 
 await axios.post(
 
-"http://localhost:5000/api/friends/request",
+"https://realchat-6l4v.onrender.com/api/friends/request",
 
 {
 sender:username,
@@ -894,7 +894,7 @@ onClick={async()=>{
 console.log(req);
 
 await axios.post(
-"http://localhost:5000/api/friends/accept",
+"https://realchat-6l4v.onrender.com/api/friends/accept",
 {id:req._id}
 );
 
@@ -909,7 +909,7 @@ receiver:username,
 // Reload requests
 
 const requests=await axios.get(
-`http://localhost:5000/api/friends/requests/${username}`
+`https://realchat-6l4v.onrender.com/api/friends/requests/${username}`
 );
 
 setFriendRequests(requests.data);
@@ -917,7 +917,7 @@ setFriendRequests(requests.data);
 // Reload friends
 
 const friends=await axios.get(
-`http://localhost:5000/api/friends/${username}`
+`https://realchat-6l4v.onrender.com/api/friends/${username}`
 );
 
 setFriends(friends.data);
@@ -937,14 +937,14 @@ Accept
 onClick={async()=>{
 
 await axios.post(
-"http://localhost:5000/api/friends/reject",
+"https://realchat-6l4v.onrender.com/api/friends/reject",
 {id:req._id}
 );
 
 
 
 const requests=await axios.get(
-`http://localhost:5000/api/friends/requests/${username}`
+`https://realchat-6l4v.onrender.com/api/friends/requests/${username}`
 );
 
 setFriendRequests(requests.data);
