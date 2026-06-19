@@ -12,7 +12,7 @@ function Login({ onLogin, goToRegister }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://realchat-6l4v.onrender.com/api/auth/login",
         form
       );
 

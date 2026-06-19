@@ -45,7 +45,7 @@ function Register({ goToLogin }) {
 
       await axios.post(
 
-        "http://localhost:5000/api/auth/register",
+        "https://realchat-6l4v.onrender.com/api/auth/register",
 
         formData,
 
